@@ -40,3 +40,12 @@
   $(window).scroll(navbarCollapse);
 
 })(jQuery); // End of use strict
+function getBaseURLFromScript() {
+  const scripts = document.getElementsByTagName("script");
+  const thisScript = scripts[scripts.length - 1]; // Assuming your script is the last one
+  const baseParts = thisScript.src.split("/");
+  baseParts.pop(); // Remove the script filename
+  return baseParts.join("/");
+}
+const baseURLFromScript = getBaseURLFromScript();
+console.log("Base URL from script:", baseURLFromScript);
